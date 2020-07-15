@@ -1,0 +1,92 @@
+<p>editcity works!</p>
+<div class="animate__animated animate__pulse">
+  <div class="add-title">
+    <h2 class="primary">Edit City Info</h2>
+  </div>
+  <div>
+    <form [formGroup]="editCityForm" (submit)="editCity()">
+      <mat-grid-list cols="2" rowHeight="85px">
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput placeholder="city" formControlName="city" required autocomplete="off">
+              <mat-error *ngIf="editCityForm.controls.city.hasError('required')">
+                Please enter city
+              </mat-error>
+              <mat-error *ngIf="editCityForm.controls.city.hasError('pattern')">
+                Please enter valid city
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker1" formControlName="start_date" placeholder="Start date" required autocomplete="off">
+              <mat-error *ngIf="editCityForm.controls.start_date.hasError('required')">
+                Please enter Start date
+              </mat-error>
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker2" formControlName="end_date" placeholder="End date" required autocomplete="off">
+              <mat-error *ngIf="editCityForm.controls.end_date.hasError('required')">
+                Please enter End date
+              </mat-error>
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput placeholder="price" formControlName="price" required autocomplete="off" />
+              <mat-error *ngIf="editCityForm.controls.price.hasError('required')">
+                Please enter price
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput placeholder="status" formControlName="status" required autocomplete="off" />
+              <mat-error *ngIf="editCityForm.controls.status.hasError('required')">
+                Please enter status
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input matInput placeholder="color" formControlName="color" required autocomplete="off" />
+              <mat-error *ngIf="editCityForm.controls.color.hasError('required')">
+                Please enter color
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+
+      <div class="btn-sec">
+        <button mat-raised-button type="submit" color="primary" class="Update-btn" [disabled]="!editCityForm.valid" >Edit</button>
+        <button mat-raised-button type="button" class="Discard-btn" (click)="closeDialog()">Cancel</button>
+      </div>
+
+    </form>
+  </div>
+</div>
